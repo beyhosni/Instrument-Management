@@ -1,0 +1,22 @@
+type Instrument {
+    id: ID!
+    name: String!
+    serialNumber: String!
+    category: Category
+}
+
+type Category {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    getInstruments: [Instrument]
+    getInstrumentById(id: ID!): Instrument
+}
+
+type Mutation {
+    addInstrument(name: String!, serialNumber: String!, categoryId: ID!): Instrument
+    updateInstrument(id: ID!, name: String, serialNumber: String): Instrument
+    deleteInstrument(id: ID!): Boolean
+}
